@@ -8,12 +8,11 @@ import { images, Subscribers, users } from "@/lib/schema";
 import { cookies } from 'next/headers';
 import {cache} from 'react'
 
-export  const getUserId = cache(async()=> {
+export const getUserId = cache(async()=> {
   const cookieStore = cookies();
-  const userId = cookieStore.get('userID')?.value;
+  const userId = await cookieStore.get('userID')?.value;
   return userId;
-}
-)
+})
 
 export const  getUser = cache(async()=> {
   const userId = await getUserId();
@@ -56,14 +55,12 @@ export async function createUserSession(userId: string, remember: boolean) {
   revalidatePath("/");
   return true;
 }
-
 export async function logout() {
   const cookieStore = cookies();
   cookieStore.delete('userID');
   revalidatePath("/");
   return true;
 }
-
 export const getUserById = cache(
   async (id: string | number) => {
     console.log('id', id);
@@ -163,7 +160,7 @@ export async function deleteImage(imageId: number) {
 }
 export const getUserWithImages = cache(
   async (id: string | number) => {
-  'use cache';
+  // 'use cache';
     console.log('id', id);
     
     try {

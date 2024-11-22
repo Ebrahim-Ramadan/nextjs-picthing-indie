@@ -76,6 +76,9 @@ export default async function RootLayout({
 <link rel="dns-prefetch" href="//avatars.githubusercontent.com" />
 <link rel="dns-prefetch" href="//lh3.googleusercontent.com" />
 <link rel="dns-prefetch" href="//raw.githubusercontent.com" />
+
+<script src="https://unpkg.com/react-scan/dist/auto.global.js"></script>
+
       </head>
       <body
         className={`${GeistSans.className} ${GeistMono.className} antialiased bg-primary-50`}

@@ -7,10 +7,10 @@ import { Suspense } from 'react';
 import LoadingDots from '@/components/Globals/LoadingDots';
 import Image from 'next/image';
 const HeroSections = dynamic(() => import('@/components/Home/HeroSections'), {
-  ssr: false,
+  ssr: true,
 });
 const DynamicVideoComponent = dynamic(() => import('@/components/Home/VideoComponent'), {
-  ssr: false,
+  ssr: true,
 });
 export default async function Home() {
   const userId = await getUserId();
